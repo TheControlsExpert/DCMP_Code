@@ -18,7 +18,6 @@ public class Climb extends SubsystemBase {
         motor2_config.MotorOutput.Inverted = InvertedValue.Clockwise_Positive;
         motor2_config.MotorOutput.NeutralMode = NeutralModeValue.Brake;
         ClimbingMotor.getConfigurator().apply(motor2_config);
-
         ClimbingMotor.setPosition(0);
     }
 
@@ -29,17 +28,9 @@ public class Climb extends SubsystemBase {
     }
 
     public void Climb() {
-        // if (ClimbingMotor.getPosition().getValueAsDouble() > 50) {
-        //     ClimbingMotor.set(0.0);
-        // }
-
-        // else {
         ClimbingMotor.set(1);
-        // }
-
-
-
     }
+    
     public void unClimb() {
        if (ClimbingMotor.getPosition().getValueAsDouble() < 0) {
            ClimbingMotor.set(0);
@@ -48,8 +39,8 @@ public class Climb extends SubsystemBase {
        else {
         ClimbingMotor.set(-1);
        }
-
     }
+    
     public void Climb_Stop_wCage() {
         ClimbingMotor.set(0.05);
     }
